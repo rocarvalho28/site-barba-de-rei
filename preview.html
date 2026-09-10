@@ -1,0 +1,3970 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Barba de Rei | Barbearia em São Paulo</title>
+
+    <meta
+        name="description"
+        content="Barba de Rei em São Paulo. Corte, barba, acabamento e cuidados masculinos em um ambiente moderno e confortável. Agende pelo WhatsApp."
+    >
+
+    <meta name="theme-color" content="#121212">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* =========================================================
+           RESET / VARIÁVEIS
+        ========================================================== */
+
+        :root {
+            --bg: #121212;
+            --bg-dark: #0d0d0d;
+            --bg-soft: #181818;
+            --bg-card: #1d1d1d;
+
+            --gold: #d4af37;
+            --gold-light: #e5c35a;
+            --gold-dark: #a9841f;
+
+            --white: #ffffff;
+            --text: #f4f4f4;
+            --muted: #b8b8b8;
+
+            --border: rgba(212, 175, 55, 0.18);
+
+            --whatsapp: #25d366;
+
+            --container: 1180px;
+
+            --radius: 18px;
+            --radius-sm: 12px;
+
+            --shadow: 0 20px 50px rgba(0, 0, 0, 0.30);
+
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "Inter", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #111;
+        }
+
+        .container {
+            width: min(calc(100% - 40px), var(--container));
+            margin-inline: auto;
+        }
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-dark {
+            background: var(--bg-dark);
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 16px;
+
+            color: var(--gold);
+
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+
+            width: 28px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .section-heading {
+            margin-bottom: 50px;
+        }
+
+        .section-heading.center {
+            text-align: center;
+        }
+
+        .section-heading.center .section-description {
+            margin-inline: auto;
+        }
+
+        .section-heading.center .eyebrow::before {
+            display: none;
+        }
+
+        .section-title {
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: clamp(2.8rem, 6vw, 4.8rem);
+            line-height: 0.95;
+            letter-spacing: 0.02em;
+
+            color: var(--white);
+
+            margin-bottom: 18px;
+        }
+
+        .section-title span {
+            color: var(--gold);
+        }
+
+        .section-description {
+            max-width: 650px;
+
+            color: var(--muted);
+
+            font-size: 1rem;
+        }
+
+
+        /* =========================================================
+           BOTÕES
+        ========================================================== */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 52px;
+            padding: 0 23px;
+
+            border-radius: 8px;
+            border: 1px solid transparent;
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            transition:
+                transform var(--transition),
+                background var(--transition),
+                color var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-gold {
+            color: #111;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--gold-light),
+                    var(--gold)
+                );
+
+            box-shadow:
+                0 12px 30px rgba(212, 175, 55, 0.18);
+        }
+
+        .btn-gold:hover {
+            box-shadow:
+                0 15px 38px rgba(212, 175, 55, 0.27);
+        }
+
+        .btn-outline {
+            color: white;
+
+            border-color: rgba(255,255,255,0.17);
+
+            background:
+                rgba(255,255,255,0.03);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-whatsapp {
+            color: #07130a;
+
+            background: var(--whatsapp);
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================== */
+
+        .header {
+            position: fixed;
+
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 999;
+
+            background:
+                rgba(15, 15, 15, 0.74);
+
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.05);
+
+            transition:
+                background var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(10, 10, 10, 0.96);
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .navbar {
+            height: 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(212,175,55,0.45);
+
+            background:
+                rgba(212,175,55,0.06);
+
+            color: var(--gold);
+        }
+
+        .logo-text {
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: 1.75rem;
+
+            letter-spacing: 0.04em;
+        }
+
+        .logo-text span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: #dedede;
+
+            font-size: 0.88rem;
+            font-weight: 500;
+
+            transition:
+                color var(--transition);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -8px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--gold);
+
+            transition:
+                width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .menu-toggle {
+            width: 46px;
+            height: 46px;
+
+            display: none;
+            place-items: center;
+
+            border-radius: 8px;
+
+            border:
+                1px solid rgba(255,255,255,0.12);
+
+            color: white;
+
+            background: transparent;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================== */
+
+        .hero {
+            position: relative;
+
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 135px 0 80px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8, 8, 8, 0.98) 0%,
+                    rgba(8, 8, 8, 0.93) 35%,
+                    rgba(8, 8, 8, 0.66) 62%,
+                    rgba(8, 8, 8, 0.35) 100%
+                ),
+                url("assets/hero-barba-de-rei.jpg")
+                center center / cover no-repeat;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 75% 40%,
+                    rgba(212,175,55,0.13),
+                    transparent 35%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            height: 160px;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    transparent,
+                    var(--bg)
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 780px;
+        }
+
+        .hero-badge {
+            width: fit-content;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 9px 14px;
+
+            margin-bottom: 24px;
+
+            border-radius: 999px;
+
+            border:
+                1px solid rgba(212,175,55,0.28);
+
+            background:
+                rgba(212,175,55,0.08);
+
+            color: #ead684;
+
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            max-width: 850px;
+
+            font-family: "Bebas Neue", sans-serif;
+
+            font-size: clamp(4rem, 8vw, 7rem);
+            line-height: 0.88;
+            letter-spacing: 0.01em;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-description {
+            max-width: 630px;
+
+            color: #d3d3d3;
+
+            font-size:
+                clamp(1rem, 2vw, 1.15rem);
+
+            margin-bottom: 32px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 13px;
+
+            margin-bottom: 42px;
+        }
+
+        .hero-trust {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+
+            gap: 22px;
+
+            color: #d5d5d5;
+
+            font-size: 0.86rem;
+        }
+
+        .hero-trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-trust-item svg {
+            width: 18px;
+
+            color: var(--gold);
+        }
+
+        .rating-stars {
+            display: flex;
+
+            gap: 2px;
+
+            color: var(--gold);
+        }
+
+        .rating-stars svg {
+            width: 16px;
+            height: 16px;
+
+            fill: var(--gold);
+        }
+
+
+        /* =========================================================
+           SOBRE
+        ========================================================== */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.95fr 1.05fr;
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .about-image {
+            min-height: 570px;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid var(--border);
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.05),
+                    rgba(0,0,0,0.22)
+                ),
+                url("assets/barbearia-ambiente.jpg")
+                center / cover no-repeat;
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-floating-card {
+            position: absolute;
+
+            right: -25px;
+            bottom: 34px;
+
+            width: 220px;
+
+            padding: 22px;
+
+            border-radius: 14px;
+
+            border:
+                1px solid rgba(212,175,55,0.28);
+
+            background:
+                rgba(18,18,18,0.93);
+
+            backdrop-filter: blur(12px);
+
+            box-shadow: var(--shadow);
+        }
+
+        .about-floating-card strong {
+            display: block;
+
+            font-family: "Bebas Neue", sans-serif;
+
+            color: var(--gold);
+
+            font-size: 2.2rem;
+            line-height: 1;
+
+            margin-bottom: 7px;
+        }
+
+        .about-floating-card span {
+            color: var(--muted);
+
+            font-size: 0.85rem;
+        }
+
+        .about-content p {
+            color: var(--muted);
+
+            margin-bottom: 18px;
+        }
+
+        .about-points {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+            margin: 30px 0 34px;
+        }
+
+        .about-point {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .about-point-icon {
+            width: 33px;
+            height: 33px;
+
+            flex: 0 0 33px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(212,175,55,0.08);
+
+            color: var(--gold);
+        }
+
+        .about-point-icon svg {
+            width: 16px;
+        }
+
+
+        /* =========================================================
+           EXPERIÊNCIA / GALERIA
+        ========================================================== */
+
+        .experience-section {
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(212,175,55,0.07),
+                    transparent 35%
+                ),
+                #111111;
+        }
+
+        .experience-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.25fr 0.75fr;
+
+            grid-template-rows:
+                repeat(2, 320px);
+
+            gap: 18px;
+        }
+
+        .experience-photo {
+            position: relative;
+
+            overflow: hidden;
+
+            margin: 0;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(212,175,55,0.16);
+
+            background: #181818;
+
+            box-shadow:
+                0 18px 45px rgba(0,0,0,0.25);
+        }
+
+        .experience-photo-large {
+            grid-row: span 2;
+        }
+
+        .experience-photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease,
+                filter 0.6s ease;
+        }
+
+        .experience-photo::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.86),
+                    transparent 55%
+                );
+
+            pointer-events: none;
+        }
+
+        .experience-photo:hover img {
+            transform: scale(1.045);
+
+            filter:
+                contrast(1.04);
+        }
+
+        .experience-photo figcaption {
+            position: absolute;
+
+            z-index: 2;
+
+            left: 25px;
+            right: 25px;
+            bottom: 24px;
+        }
+
+        .experience-photo figcaption span {
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+
+            margin-bottom: 4px;
+        }
+
+        .experience-photo figcaption strong {
+            color: white;
+
+            font-size: 1.05rem;
+        }
+
+        .experience-instagram {
+            display: flex;
+            justify-content: center;
+
+            margin-top: 32px;
+        }
+
+
+        /* =========================================================
+           SERVIÇOS
+        ========================================================== */
+
+        .services-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+        .service-card {
+            position: relative;
+
+            overflow: hidden;
+
+            min-height: 230px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1e1e1e,
+                    #171717
+                );
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            right: -50px;
+            bottom: -70px;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,0.11),
+                    transparent 70%
+                );
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(212,175,55,0.28);
+
+            background: #222;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(212,175,55,0.09);
+
+            color: var(--gold);
+        }
+
+        .service-icon svg {
+            width: 25px;
+        }
+
+        .service-price {
+            color: var(--gold);
+
+            text-align: right;
+        }
+
+        .service-price small {
+            display: block;
+
+            color: #858585;
+
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .service-price strong {
+            font-family:
+                "Bebas Neue", sans-serif;
+
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+
+        .service-card h3 {
+            font-size: 1.05rem;
+
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+
+            font-size: 0.88rem;
+        }
+
+        .price-notice {
+            margin-top: 24px;
+
+            color: #898989;
+
+            font-size: 0.78rem;
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           DIFERENCIAIS
+        ========================================================== */
+
+        .features-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 16px;
+        }
+
+        .feature-card {
+            padding: 30px 24px;
+
+            text-align: center;
+
+            border-radius: var(--radius-sm);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            background: #171717;
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(212,175,55,0.30);
+        }
+
+        .feature-icon {
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            color: var(--gold);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212,175,55,0.14),
+                    rgba(212,175,55,0.04)
+                );
+
+            border:
+                1px solid rgba(212,175,55,0.17);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 9px;
+
+            font-size: 0.98rem;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+
+            font-size: 0.83rem;
+        }
+
+
+        /* =========================================================
+           PROVA SOCIAL COM FOTO
+        ========================================================== */
+
+        .social-proof-photo {
+            display: grid;
+
+            grid-template-columns:
+                0.9fr 1.1fr;
+
+            gap: 55px;
+
+            align-items: center;
+
+            margin-bottom: 65px;
+        }
+
+        .social-proof-image {
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(212,175,55,0.18);
+
+            box-shadow: var(--shadow);
+        }
+
+        .social-proof-image img {
+            width: 100%;
+            height: 520px;
+
+            object-fit: cover;
+        }
+
+        .social-proof-copy p {
+            max-width: 560px;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           DEPOIMENTOS
+        ========================================================== */
+
+        .testimonials-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .testimonial-card {
+            display: flex;
+            flex-direction: column;
+
+            padding: 27px;
+
+            border-radius: var(--radius);
+
+            background: var(--bg-card);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            transition:
+                transform var(--transition),
+                border-color var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(212,175,55,0.25);
+        }
+
+        .testimonial-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .quote-icon {
+            color: var(--gold);
+        }
+
+        .testimonial-card blockquote {
+            flex-grow: 1;
+
+            margin-bottom: 22px;
+
+            color: #d4d4d4;
+
+            font-size: 0.91rem;
+            line-height: 1.75;
+        }
+
+        .testimonial-source {
+            padding-top: 18px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.07);
+
+            color: #969696;
+
+            font-size: 0.78rem;
+        }
+
+
+        /* =========================================================
+           CTA CENTRAL
+        ========================================================== */
+
+        .cta-band {
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 55px;
+
+            border-radius: 24px;
+
+            border:
+                1px solid rgba(212,175,55,0.30);
+
+            background:
+                linear-gradient(
+                    125deg,
+                    rgba(212,175,55,0.13),
+                    rgba(212,175,55,0.03) 55%
+                ),
+                #171717;
+        }
+
+        .cta-band::after {
+            content: "";
+
+            position: absolute;
+
+            width: 400px;
+            height: 400px;
+
+            right: -150px;
+            top: -150px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(212,175,55,0.13),
+                    transparent 68%
+                );
+        }
+
+        .cta-band-inner {
+            position: relative;
+            z-index: 2;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 40px;
+        }
+
+        .cta-band h2 {
+            max-width: 650px;
+
+            font-family:
+                "Bebas Neue", sans-serif;
+
+            font-size:
+                clamp(2.6rem, 5vw, 4.2rem);
+
+            line-height: 0.95;
+
+            margin-bottom: 12px;
+        }
+
+        .cta-band p {
+            color: var(--muted);
+        }
+
+
+        /* =========================================================
+           SHOWCASE DO AMBIENTE
+        ========================================================== */
+
+        .barbershop-showcase {
+            position: relative;
+
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+        .barbershop-showcase > img {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .barbershop-showcase-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(8,8,8,0.96) 0%,
+                    rgba(8,8,8,0.75) 45%,
+                    rgba(8,8,8,0.20) 100%
+                );
+        }
+
+        .barbershop-showcase-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .barbershop-showcase-content h2 {
+            max-width: 650px;
+
+            font-family:
+                "Bebas Neue", sans-serif;
+
+            font-size:
+                clamp(3.3rem, 7vw, 6rem);
+
+            line-height: 0.92;
+
+            margin-bottom: 20px;
+        }
+
+        .barbershop-showcase-content h2 span {
+            color: var(--gold);
+        }
+
+        .barbershop-showcase-content p {
+            max-width: 520px;
+
+            margin-bottom: 28px;
+
+            color: #d0d0d0;
+
+            font-size: 1rem;
+        }
+
+
+        /* =========================================================
+           CONTATO
+        ========================================================== */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns:
+                0.8fr 1.2fr;
+
+            gap: 28px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+
+            gap: 16px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 16px;
+
+            padding: 22px;
+
+            border-radius: var(--radius-sm);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            background: #181818;
+        }
+
+        .contact-card-icon {
+            width: 45px;
+            height: 45px;
+
+            flex: 0 0 45px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 10px;
+
+            color: var(--gold);
+
+            background:
+                rgba(212,175,55,0.08);
+        }
+
+        .contact-card-icon svg {
+            width: 20px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 5px;
+
+            font-size: 0.93rem;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--muted);
+
+            font-size: 0.87rem;
+        }
+
+        .contact-card a:hover {
+            color: var(--gold);
+        }
+
+        .hours-card {
+            padding: 25px;
+
+            border-radius: var(--radius-sm);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
+            background: #181818;
+        }
+
+        .hours-card h3 {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+
+            margin-bottom: 19px;
+
+            font-size: 1rem;
+        }
+
+        .hours-card h3 svg {
+            width: 19px;
+
+            color: var(--gold);
+        }
+
+        .hours-list {
+            display: grid;
+
+            gap: 8px;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+
+            padding-bottom: 8px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.05);
+
+            color: var(--muted);
+
+            font-size: 0.83rem;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .hours-list strong {
+            color: #e2e2e2;
+
+            font-weight: 500;
+        }
+
+        .hours-list .closed {
+            color: #c98787;
+        }
+
+        .map-wrapper {
+            min-height: 100%;
+
+            overflow: hidden;
+
+            border-radius: var(--radius);
+
+            border:
+                1px solid var(--border);
+
+            background: #191919;
+
+            box-shadow: var(--shadow);
+        }
+
+        .map-wrapper iframe {
+            display: block;
+
+            width: 100%;
+            height: 100%;
+            min-height: 630px;
+
+            border: 0;
+
+            filter:
+                grayscale(1)
+                invert(0.90)
+                contrast(0.85);
+
+            opacity: 0.88;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================== */
+
+        .footer {
+            padding: 45px 0 28px;
+
+            background: #090909;
+
+            border-top:
+                1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 30px;
+
+            padding-bottom: 28px;
+            margin-bottom: 25px;
+
+            border-bottom:
+                1px solid rgba(255,255,255,0.07);
+        }
+
+        .footer-description {
+            max-width: 440px;
+
+            margin-top: 12px;
+
+            color: #8f8f8f;
+
+            font-size: 0.81rem;
+        }
+
+        .social-links {
+            display: flex;
+
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 43px;
+            height: 43px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            border:
+                1px solid rgba(255,255,255,0.10);
+
+            color: #cecece;
+
+            transition:
+                color var(--transition),
+                border-color var(--transition),
+                transform var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--gold);
+
+            border-color: var(--gold);
+
+            transform: translateY(-2px);
+        }
+
+        .social-link svg {
+            width: 19px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            color: #737373;
+
+            font-size: 0.75rem;
+        }
+
+
+        /* =========================================================
+           WHATSAPP FLUTUANTE
+        ========================================================== */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 990;
+
+            width: 60px;
+            height: 60px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: var(--whatsapp);
+
+            color: #07130a;
+
+            box-shadow:
+                0 12px 34px rgba(37,211,102,0.28);
+
+            transition:
+                transform var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform:
+                translateY(-4px)
+                scale(1.03);
+
+            box-shadow:
+                0 17px 40px rgba(37,211,102,0.35);
+        }
+
+
+        /* =========================================================
+           ANIMAÇÕES
+        ========================================================== */
+
+        .reveal {
+            opacity: 0;
+
+            transform:
+                translateY(22px);
+
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           RESPONSIVO
+        ========================================================== */
+
+        @media (max-width: 1024px) {
+
+            .desktop-cta {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-grid {
+                gap: 45px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-wrapper iframe {
+                min-height: 450px;
+            }
+
+        }
+
+
+        @media (max-width: 820px) {
+
+            .section {
+                padding: 82px 0;
+            }
+
+            .menu-toggle {
+                display: grid;
+            }
+
+            .nav-links {
+                position: fixed;
+
+                top: 80px;
+                left: 0;
+                right: 0;
+
+                height:
+                    calc(100vh - 80px);
+
+                padding: 45px 28px;
+
+                flex-direction: column;
+                align-items: flex-start;
+
+                gap: 0;
+
+                background:
+                    rgba(12,12,12,0.99);
+
+                opacity: 0;
+                visibility: hidden;
+
+                transform:
+                    translateY(-12px);
+
+                transition:
+                    opacity var(--transition),
+                    visibility var(--transition),
+                    transform var(--transition);
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                visibility: visible;
+
+                transform:
+                    translateY(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+
+                border-bottom:
+                    1px solid rgba(255,255,255,0.07);
+            }
+
+            .nav-links a {
+                display: block;
+
+                width: 100%;
+
+                padding: 20px 0;
+
+                font-family:
+                    "Bebas Neue", sans-serif;
+
+                font-size: 1.8rem;
+                letter-spacing: 0.04em;
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 480px;
+            }
+
+            .about-floating-card {
+                right: 18px;
+            }
+
+            .experience-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .experience-photo,
+            .experience-photo-large {
+                height: 430px;
+
+                grid-row: auto;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-proof-photo {
+                grid-template-columns: 1fr;
+
+                gap: 30px;
+            }
+
+            .social-proof-image img {
+                height: 450px;
+            }
+
+            .cta-band {
+                padding: 40px 30px;
+            }
+
+            .cta-band-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-top,
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .container {
+                width:
+                    min(
+                        calc(100% - 30px),
+                        var(--container)
+                    );
+            }
+
+            .navbar {
+                height: 72px;
+            }
+
+            .nav-links {
+                top: 72px;
+
+                height:
+                    calc(100vh - 72px);
+            }
+
+            .hero {
+                min-height: 95svh;
+
+                padding-top: 120px;
+
+                background:
+                    linear-gradient(
+                        rgba(8,8,8,0.74),
+                        rgba(8,8,8,0.95)
+                    ),
+                    url("assets/hero-barba-de-rei.jpg")
+                    center center / cover no-repeat;
+            }
+
+            .hero h1 {
+                font-size:
+                    clamp(
+                        3.6rem,
+                        18vw,
+                        5.2rem
+                    );
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .hero-trust {
+                gap: 12px 18px;
+            }
+
+            .about-points {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 410px;
+            }
+
+            .about-floating-card {
+                right: 12px;
+                bottom: 15px;
+
+                width: 190px;
+            }
+
+            .experience-photo,
+            .experience-photo-large {
+                height: 370px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 24px;
+            }
+
+            .social-proof-image img {
+                height: 410px;
+            }
+
+            .cta-band {
+                padding: 35px 23px;
+            }
+
+            .barbershop-showcase {
+                min-height: 620px;
+            }
+
+            .barbershop-showcase-overlay {
+                background:
+                    linear-gradient(
+                        rgba(8,8,8,0.50),
+                        rgba(8,8,8,0.95)
+                    );
+            }
+
+            .barbershop-showcase-content {
+                align-self: flex-end;
+
+                padding-bottom: 70px;
+            }
+
+            .map-wrapper iframe {
+                min-height: 360px;
+            }
+
+            .footer-bottom {
+                line-height: 1.8;
+            }
+
+            .whatsapp-float {
+                right: 16px;
+                bottom: 16px;
+
+                width: 56px;
+                height: 56px;
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    0.01ms !important;
+
+                transition-duration:
+                    0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+
+                transform: none;
+            }
+
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="header" id="header">
+
+        <div class="container navbar">
+
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Barba de Rei - Início"
+            >
+
+                <span class="logo-icon">
+                    <i data-lucide="crown"></i>
+                </span>
+
+                <span class="logo-text">
+                    Barba de <span>Rei</span>
+                </span>
+
+            </a>
+
+
+            <nav aria-label="Navegação principal">
+
+                <ul
+                    class="nav-links"
+                    id="navLinks"
+                >
+
+                    <li>
+                        <a href="#inicio">
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#sobre">
+                            Sobre
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#servicos">
+                            Serviços
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#precos">
+                            Preços
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#contato">
+                            Contato
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+
+            <div class="nav-actions">
+
+                <a
+                    class="btn btn-gold desktop-cta whatsapp-link"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i data-lucide="calendar-check"></i>
+
+                    Agendar Horário
+
+                </a>
+
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Abrir menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks"
+                >
+
+                    <i data-lucide="menu"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================================================
+             HERO
+        ========================================================== -->
+
+        <section
+            class="hero"
+            id="inicio"
+        >
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+
+                        <i
+                            data-lucide="map-pin"
+                            size="15"
+                        ></i>
+
+                        Cerqueira César • São Paulo
+
+                    </div>
+
+
+                    <h1>
+                        O cuidado e a tradição
+                        <span>que você merece.</span>
+                    </h1>
+
+
+                    <p class="hero-description">
+
+                        Corte, barba e cuidado masculino
+                        em um ambiente pensado para quem
+                        valoriza atenção aos detalhes,
+                        conforto e uma experiência completa.
+
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            class="btn btn-gold whatsapp-link"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i data-lucide="message-circle"></i>
+
+                            Agende pelo WhatsApp
+
+                        </a>
+
+
+                        <a
+                            class="btn btn-outline"
+                            href="#servicos"
+                        >
+
+                            Conhecer Serviços
+
+                            <i data-lucide="arrow-down"></i>
+
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+                        <div class="hero-trust-item">
+
+                            <div
+                                class="rating-stars"
+                                aria-hidden="true"
+                            >
+
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+
+                            </div>
+
+                            <strong>4,8</strong>
+
+                        </div>
+
+
+                        <div class="hero-trust-item">
+
+                            <i data-lucide="shield-check"></i>
+
+                            Ambiente cuidado
+
+                        </div>
+
+
+                        <div class="hero-trust-item">
+
+                            <i data-lucide="scissors"></i>
+
+                            Atenção aos detalhes
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SOBRE
+        ========================================================== -->
+
+        <section
+            class="section"
+            id="sobre"
+        >
+
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div
+                        class="about-visual reveal"
+                    >
+
+                        <div
+                            class="about-image"
+                            role="img"
+                            aria-label="Ambiente interno da Barba de Rei"
+                        ></div>
+
+
+                        <div
+                            class="about-floating-card"
+                        >
+
+                            <strong>
+                                Barba de Rei
+                            </strong>
+
+                            <span>
+                                Tradição, estilo e cuidado
+                                em cada detalhe.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="about-content reveal"
+                    >
+
+                        <span class="eyebrow">
+                            Sobre nós
+                        </span>
+
+
+                        <h2 class="section-title">
+
+                            Aqui, cada cliente recebe
+                            <span>tratamento de Rei.</span>
+
+                        </h2>
+
+
+                        <p>
+                            A Barba de Rei foi pensada para
+                            transformar o momento do corte
+                            e da barba em uma experiência
+                            agradável, confortável e bem cuidada.
+                        </p>
+
+
+                        <p>
+                            Com atenção aos detalhes e atendimento
+                            próximo, buscamos entender o estilo
+                            de cada cliente para entregar um visual
+                            que faça sentido para sua rotina
+                            e personalidade.
+                        </p>
+
+
+                        <p>
+                            Tudo isso em um ambiente masculino,
+                            climatizado e preparado para você relaxar,
+                            com cerveja de cortesia durante a experiência.
+                        </p>
+
+
+                        <div class="about-points">
+
+                            <div class="about-point">
+
+                                <span
+                                    class="about-point-icon"
+                                >
+                                    <i data-lucide="sparkles"></i>
+                                </span>
+
+                                Ambiente confortável
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <span
+                                    class="about-point-icon"
+                                >
+                                    <i data-lucide="badge-check"></i>
+                                </span>
+
+                                Atendimento cuidadoso
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <span
+                                    class="about-point-icon"
+                                >
+                                    <i data-lucide="scissors"></i>
+                                </span>
+
+                                Corte e barba
+
+                            </div>
+
+
+                            <div class="about-point">
+
+                                <span
+                                    class="about-point-icon"
+                                >
+                                    <i data-lucide="beer"></i>
+                                </span>
+
+                                Cerveja de cortesia
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="btn btn-gold whatsapp-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i data-lucide="message-circle"></i>
+
+                            Quero agendar meu horário
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             EXPERIÊNCIA / GALERIA
+        ========================================================== -->
+
+        <section
+            class="section experience-section"
+            id="experiencia"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-heading center reveal"
+                >
+
+                    <span class="eyebrow">
+                        Experiência Barba de Rei
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Seu momento.
+                        <span>Do seu jeito.</span>
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Um espaço criado para unir
+                        cuidado masculino, conforto
+                        e atenção aos detalhes
+                        em cada atendimento.
+
+                    </p>
+
+                </div>
+
+
+                <div class="experience-grid">
+
+                    <figure
+                        class="experience-photo experience-photo-large reveal"
+                    >
+
+                        <img
+                            src="assets/barbearia-atendimento.jpg"
+                            alt="Barbeiro atendendo cliente na Barba de Rei"
+                            loading="lazy"
+                        >
+
+                        <figcaption>
+
+                            <span>
+                                Atendimento
+                            </span>
+
+                            <strong>
+                                Cuidado em cada detalhe
+                            </strong>
+
+                        </figcaption>
+
+                    </figure>
+
+
+                    <figure
+                        class="experience-photo reveal"
+                    >
+
+                        <img
+                            src="assets/experiencia-barba-de-rei.jpg"
+                            alt="Cliente durante atendimento na Barba de Rei"
+                            loading="lazy"
+                        >
+
+                        <figcaption>
+
+                            <span>
+                                Experiência
+                            </span>
+
+                            <strong>
+                                Seu momento de cuidado
+                            </strong>
+
+                        </figcaption>
+
+                    </figure>
+
+
+                    <figure
+                        class="experience-photo reveal"
+                    >
+
+                        <img
+                            src="assets/entrada-barba-de-rei.jpg"
+                            alt="Entrada da Barbearia Barba de Rei"
+                            loading="lazy"
+                        >
+
+                        <figcaption>
+
+                            <span>
+                                Barba de Rei
+                            </span>
+
+                            <strong>
+                                Uma experiência desde a entrada
+                            </strong>
+
+                        </figcaption>
+
+                    </figure>
+
+                </div>
+
+
+                <div
+                    class="experience-instagram reveal"
+                >
+
+                    <a
+                        href="https://www.instagram.com/barbaderei.consolacao/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-outline"
+                    >
+
+                        <i data-lucide="instagram"></i>
+
+                        Siga @barbaderei.consolacao
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SERVIÇOS E PREÇOS
+        ========================================================== -->
+
+        <section
+            class="section section-dark"
+            id="servicos"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-heading center reveal"
+                >
+
+                    <span class="eyebrow">
+                        Serviços & Preços
+                    </span>
+
+
+                    <h2
+                        class="section-title"
+                        id="precos"
+                    >
+
+                        Escolha seu
+                        <span>ritual.</span>
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Do corte clássico ao cuidado
+                        completo de cabelo, barba
+                        e acabamento.
+
+                    </p>
+
+                </div>
+
+
+                <div class="services-grid">
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div class="service-header">
+
+                            <div class="service-icon">
+
+                                <i data-lucide="scissors"></i>
+
+                            </div>
+
+
+                            <div class="service-price">
+
+                                <small>
+                                    Valor
+                                </small>
+
+                                <strong>
+                                    [R$ Corte]
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Corte de Cabelo
+                        </h3>
+
+                        <p>
+                            Corte na tesoura ou máquina,
+                            pensado para harmonizar com
+                            seu estilo, acompanhado de lavagem.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div class="service-header">
+
+                            <div class="service-icon">
+
+                                <i data-lucide="sparkles"></i>
+
+                            </div>
+
+
+                            <div class="service-price">
+
+                                <small>
+                                    Valor
+                                </small>
+
+                                <strong>
+                                    [R$ Barba]
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Barba Completa
+                        </h3>
+
+                        <p>
+                            Barboterapia com toalha quente,
+                            desenho, acabamento e cuidado
+                            com os contornos.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div class="service-header">
+
+                            <div class="service-icon">
+
+                                <i data-lucide="crown"></i>
+
+                            </div>
+
+
+                            <div class="service-price">
+
+                                <small>
+                                    Valor
+                                </small>
+
+                                <strong>
+                                    [R$ Combo Rei]
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Combo Rei
+                        </h3>
+
+                        <p>
+                            Experiência completa com
+                            cabelo, barba e acabamento
+                            de sobrancelha.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="service-card reveal"
+                    >
+
+                        <div class="service-header">
+
+                            <div class="service-icon">
+
+                                <i data-lucide="wand-sparkles"></i>
+
+                            </div>
+
+
+                            <div class="service-price">
+
+                                <small>
+                                    Valor
+                                </small>
+
+                                <strong>
+                                    [R$ Acabamento]
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <h3>
+                            Acabamento / Pezinho
+                        </h3>
+
+                        <p>
+                            Ajuste dos contornos para
+                            manter o corte alinhado
+                            entre uma visita e outra.
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <p class="price-notice">
+
+                    Consulte valores atualizados
+                    e disponibilidade diretamente
+                    com a equipe.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             DIFERENCIAIS
+        ========================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div
+                    class="section-heading center reveal"
+                >
+
+                    <span class="eyebrow">
+                        Por que nos escolher?
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Mais que um corte.
+                        <span>Uma experiência.</span>
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Cada detalhe foi pensado
+                        para tornar seu momento
+                        na barbearia mais confortável
+                        e completo.
+
+                    </p>
+
+                </div>
+
+
+                <div class="features-grid">
+
+                    <article
+                        class="feature-card reveal"
+                    >
+
+                        <div class="feature-icon">
+
+                            <i data-lucide="user-round-check"></i>
+
+                        </div>
+
+                        <h3>
+                            Atendimento Personalizado
+                        </h3>
+
+                        <p>
+                            Atenção ao seu estilo,
+                            preferências e ao resultado
+                            que você procura.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="feature-card reveal"
+                    >
+
+                        <div class="feature-icon">
+
+                            <i data-lucide="badge-check"></i>
+
+                        </div>
+
+                        <h3>
+                            Profissionais Experientes
+                        </h3>
+
+                        <p>
+                            Técnica, cuidado
+                            e atenção aos detalhes
+                            em cada atendimento.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="feature-card reveal"
+                    >
+
+                        <div class="feature-icon">
+
+                            <i data-lucide="snowflake"></i>
+
+                        </div>
+
+                        <h3>
+                            Ambiente Climatizado
+                        </h3>
+
+                        <p>
+                            Um espaço confortável
+                            para tornar seu momento
+                            ainda mais agradável.
+                        </p>
+
+                    </article>
+
+
+                    <article
+                        class="feature-card reveal"
+                    >
+
+                        <div class="feature-icon">
+
+                            <i data-lucide="beer"></i>
+
+                        </div>
+
+                        <h3>
+                            Cerveja de Cortesia
+                        </h3>
+
+                        <p>
+                            Relaxe enquanto cuida
+                            do visual durante
+                            sua visita.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             PROVA SOCIAL + DEPOIMENTOS
+        ========================================================== -->
+
+        <section
+            class="section section-dark"
+            id="avaliacoes"
+        >
+
+            <div class="container">
+
+                <div
+                    class="social-proof-photo reveal"
+                >
+
+                    <div class="social-proof-image">
+
+                        <img
+                            src="assets/clientes-barba-de-rei.jpg"
+                            alt="Clientes na Barba de Rei"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="social-proof-copy">
+
+                        <span class="eyebrow">
+                            Experiência que aproxima
+                        </span>
+
+
+                        <h2 class="section-title">
+
+                            Atendimento feito
+                            <span>de pessoa para pessoa.</span>
+
+                        </h2>
+
+
+                        <p>
+                            Na Barba de Rei, técnica importa,
+                            mas atendimento, cuidado e uma boa
+                            experiência também fazem parte
+                            de cada visita.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="section-heading center reveal"
+                >
+
+                    <span class="eyebrow">
+                        Experiência dos clientes
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Quem conhece,
+                        <span>recomenda.</span>
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Experiências compartilhadas
+                        por clientes da Barba de Rei.
+
+                    </p>
+
+                </div>
+
+
+                <div class="testimonials-grid">
+
+                    <article
+                        class="testimonial-card reveal"
+                    >
+
+                        <div class="testimonial-top">
+
+                            <div class="rating-stars">
+
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+
+                            </div>
+
+                            <i
+                                class="quote-icon"
+                                data-lucide="quote"
+                            ></i>
+
+                        </div>
+
+
+                        <blockquote>
+
+                            “Fui atendido pelo Will e a experiência foi ótima.
+                            Corte de cabelo e barba perfeitos, muito capricho
+                            e atenção aos detalhes. Profissional de alto nível.
+                            Recomendo!”
+
+                        </blockquote>
+
+
+                        <div class="testimonial-source">
+                            Avaliação de cliente
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="testimonial-card reveal"
+                    >
+
+                        <div class="testimonial-top">
+
+                            <div class="rating-stars">
+
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+
+                            </div>
+
+                            <i
+                                class="quote-icon"
+                                data-lucide="quote"
+                            ></i>
+
+                        </div>
+
+
+                        <blockquote>
+
+                            “Sou cliente assíduo e corto o cabelo toda semana aqui.
+                            Sem dúvida, a melhor barbearia da Zona Norte!
+                            Os meninos mandam muito bem no atendimento
+                            e na técnica. Recomendo demais!”
+
+                        </blockquote>
+
+
+                        <div class="testimonial-source">
+                            Avaliação de cliente
+                        </div>
+
+                    </article>
+
+
+                    <article
+                        class="testimonial-card reveal"
+                    >
+
+                        <div class="testimonial-top">
+
+                            <div class="rating-stars">
+
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+                                <i data-lucide="star"></i>
+
+                            </div>
+
+                            <i
+                                class="quote-icon"
+                                data-lucide="quote"
+                            ></i>
+
+                        </div>
+
+
+                        <blockquote>
+
+                            “Ambiente limpo e cheiroso, ótimos profissionais.
+                            Fui atendido pelo Anderson, gostei muito do resultado
+                            da minha barba. Atendimento de qualidade.
+                            A recepcionista Mari também super simpática e atenciosa.
+                            Todos os produtos usados de muita qualidade.
+                            Amei a experiência e super recomendo.”
+
+                        </blockquote>
+
+
+                        <div class="testimonial-source">
+                            Avaliação de cliente
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             CTA
+        ========================================================== -->
+
+        <section class="section">
+
+            <div class="container">
+
+                <div class="cta-band reveal">
+
+                    <div class="cta-band-inner">
+
+                        <div>
+
+                            <span class="eyebrow">
+                                Seu próximo corte começa aqui
+                            </span>
+
+
+                            <h2>
+
+                                Visual alinhado.
+                                Experiência de Rei.
+
+                            </h2>
+
+
+                            <p>
+
+                                Fale com a equipe pelo WhatsApp
+                                e consulte os horários disponíveis.
+
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="btn btn-whatsapp whatsapp-link"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+
+                            <i data-lucide="message-circle"></i>
+
+                            Agendar pelo WhatsApp
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             SHOWCASE DO AMBIENTE
+        ========================================================== -->
+
+        <section class="barbershop-showcase">
+
+            <img
+                src="assets/barbearia-ambiente.jpg"
+                alt="Ambiente interno da Barba de Rei"
+                loading="lazy"
+            >
+
+
+            <div
+                class="barbershop-showcase-overlay"
+            ></div>
+
+
+            <div
+                class="container barbershop-showcase-content reveal"
+            >
+
+                <span class="eyebrow">
+                    Nosso espaço
+                </span>
+
+
+                <h2>
+
+                    Um ambiente à altura
+                    <span>do seu estilo.</span>
+
+                </h2>
+
+
+                <p>
+
+                    Estrutura moderna, ambiente climatizado
+                    e um espaço preparado para você aproveitar
+                    cada momento do atendimento.
+
+                </p>
+
+
+                <a
+                    href="#"
+                    class="btn btn-gold whatsapp-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    <i data-lucide="message-circle"></i>
+
+                    Agendar meu horário
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================================
+             CONTATO
+        ========================================================== -->
+
+        <section
+            class="section section-dark"
+            id="contato"
+        >
+
+            <div class="container">
+
+                <div
+                    class="section-heading reveal"
+                >
+
+                    <span class="eyebrow">
+                        Contato & Localização
+                    </span>
+
+
+                    <h2 class="section-title">
+
+                        Seu lugar está
+                        <span>te esperando.</span>
+
+                    </h2>
+
+
+                    <p class="section-description">
+
+                        Entre em contato para consultar
+                        disponibilidade e agendar
+                        seu próximo atendimento.
+
+                    </p>
+
+                </div>
+
+
+                <div class="contact-grid">
+
+                    <div class="contact-info">
+
+                        <div
+                            class="contact-card reveal"
+                        >
+
+                            <div class="contact-card-icon">
+
+                                <i data-lucide="map-pin"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3>
+                                    Endereço
+                                </h3>
+
+
+                                <a
+                                    href="https://www.google.com/maps/search/?api=1&query=R.%20Dona%20Ant%C3%B4nia%20de%20Queir%C3%B3s%2C%2083%20-%20Cerqueira%20C%C3%A9sar%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001307-012"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+
+                                    R. Dona Antônia de Queirós, 83
+                                    <br>
+
+                                    Cerqueira César,
+                                    São Paulo - SP
+                                    <br>
+
+                                    CEP 01307-012
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="contact-card reveal"
+                        >
+
+                            <div class="contact-card-icon">
+
+                                <i data-lucide="phone"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3>
+                                    Telefone / WhatsApp
+                                </h3>
+
+
+                                <a
+                                    href="tel:+5511933223080"
+                                >
+
+                                    (11) 93322-3080
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="contact-card reveal"
+                        >
+
+                            <div class="contact-card-icon">
+
+                                <i data-lucide="star"></i>
+
+                            </div>
+
+
+                            <div>
+
+                                <h3>
+                                    Avaliação
+                                </h3>
+
+
+                                <p>
+
+                                    <strong
+                                        style="color:#D4AF37;"
+                                    >
+                                        4,8
+                                    </strong>
+
+                                    de avaliação
+
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="hours-card reveal"
+                        >
+
+                            <h3>
+
+                                <i data-lucide="clock-3"></i>
+
+                                Horário de funcionamento
+
+                            </h3>
+
+
+                            <ul class="hours-list">
+
+                                <li>
+                                    <span>
+                                        Segunda-feira
+                                    </span>
+
+                                    <strong>
+                                        10:00–21:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Terça-feira
+                                    </span>
+
+                                    <strong>
+                                        10:00–21:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Quarta-feira
+                                    </span>
+
+                                    <strong>
+                                        10:00–21:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Quinta-feira
+                                    </span>
+
+                                    <strong>
+                                        10:00–21:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Sexta-feira
+                                    </span>
+
+                                    <strong>
+                                        10:00–21:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Sábado
+                                    </span>
+
+                                    <strong>
+                                        10:00–19:00
+                                    </strong>
+                                </li>
+
+                                <li>
+                                    <span>
+                                        Domingo
+                                    </span>
+
+                                    <strong class="closed">
+                                        Fechado
+                                    </strong>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="map-wrapper reveal"
+                    >
+
+                        <iframe
+                            src="https://www.google.com/maps?q=R.%20Dona%20Ant%C3%B4nia%20de%20Queir%C3%B3s%2C%2083%2C%20S%C3%A3o%20Paulo%2C%20SP%2C%2001307-012&output=embed"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localização da Barba de Rei"
+                            allowfullscreen
+                        ></iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-top">
+
+                <div>
+
+                    <a
+                        href="#inicio"
+                        class="logo"
+                    >
+
+                        <span class="logo-icon">
+
+                            <i data-lucide="crown"></i>
+
+                        </span>
+
+
+                        <span class="logo-text">
+
+                            Barba de <span>Rei</span>
+
+                        </span>
+
+                    </a>
+
+
+                    <p class="footer-description">
+
+                        Barbearia em São Paulo para quem
+                        valoriza estilo, cuidado, conforto
+                        e atenção aos detalhes.
+
+                    </p>
+
+                </div>
+
+
+                <div class="social-links">
+
+                    <a
+                        href="https://www.instagram.com/barbaderei.consolacao/"
+                        class="social-link"
+                        aria-label="Instagram da Barba de Rei"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i data-lucide="instagram"></i>
+
+                    </a>
+
+
+                    <a
+                        href="[Facebook]"
+                        class="social-link"
+                        aria-label="Facebook da Barba de Rei"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <i data-lucide="facebook"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+
+                    © <span id="currentYear"></span>
+                    Barba de Rei.
+                    Todos os direitos reservados.
+
+                </span>
+
+
+                <span>
+
+                    As informações de serviços,
+                    valores e horários podem
+                    sofrer alterações.
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================================
+         WHATSAPP FLUTUANTE
+    ========================================================== -->
+
+    <a
+        href="#"
+        class="whatsapp-float whatsapp-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Agendar horário pelo WhatsApp"
+        title="Agendar pelo WhatsApp"
+    >
+
+        <i data-lucide="message-circle"></i>
+
+    </a>
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                /* =============================================
+                   LUCIDE ICONS
+                ============================================== */
+
+                lucide.createIcons();
+
+
+                /* =============================================
+                   WHATSAPP
+                ============================================== */
+
+                const whatsappNumber =
+                    "5511933223080";
+
+                const whatsappMessage =
+                    "Olá! Gostaria de agendar um horário na Barba de Rei.";
+
+                const whatsappURL =
+                    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+
+                document
+                    .querySelectorAll(".whatsapp-link")
+                    .forEach(link => {
+
+                        link.href =
+                            whatsappURL;
+
+                    });
+
+
+                /* =============================================
+                   MENU MOBILE
+                ============================================== */
+
+                const menuToggle =
+                    document.getElementById(
+                        "menuToggle"
+                    );
+
+                const navLinks =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+
+                function updateMenuIcon(
+                    isOpen
+                ) {
+
+                    menuToggle.innerHTML =
+                        isOpen
+                            ? '<i data-lucide="x"></i>'
+                            : '<i data-lucide="menu"></i>';
+
+                    lucide.createIcons();
+
+                }
+
+
+                function openMenu() {
+
+                    navLinks
+                        .classList
+                        .add("open");
+
+                    document.body
+                        .classList
+                        .add("menu-open");
+
+                    menuToggle
+                        .setAttribute(
+                            "aria-expanded",
+                            "true"
+                        );
+
+                    menuToggle
+                        .setAttribute(
+                            "aria-label",
+                            "Fechar menu"
+                        );
+
+                    updateMenuIcon(true);
+
+                }
+
+
+                function closeMenu() {
+
+                    navLinks
+                        .classList
+                        .remove("open");
+
+                    document.body
+                        .classList
+                        .remove("menu-open");
+
+                    menuToggle
+                        .setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                    menuToggle
+                        .setAttribute(
+                            "aria-label",
+                            "Abrir menu"
+                        );
+
+                    updateMenuIcon(false);
+
+                }
+
+
+                menuToggle
+                    .addEventListener(
+                        "click",
+                        () => {
+
+                            const isOpen =
+                                navLinks
+                                    .classList
+                                    .contains("open");
+
+                            if (isOpen) {
+
+                                closeMenu();
+
+                            } else {
+
+                                openMenu();
+
+                            }
+
+                        }
+                    );
+
+
+                /* =============================================
+                   ROLAGEM SUAVE
+                ============================================== */
+
+                document
+                    .querySelectorAll(
+                        'a[href^="#"]'
+                    )
+                    .forEach(anchor => {
+
+                        anchor
+                            .addEventListener(
+                                "click",
+                                function(event) {
+
+                                    const targetId =
+                                        this
+                                            .getAttribute(
+                                                "href"
+                                            );
+
+                                    if (
+                                        targetId === "#" ||
+                                        this
+                                            .classList
+                                            .contains(
+                                                "whatsapp-link"
+                                            )
+                                    ) {
+
+                                        return;
+
+                                    }
+
+
+                                    const target =
+                                        document
+                                            .querySelector(
+                                                targetId
+                                            );
+
+
+                                    if (!target) {
+
+                                        return;
+
+                                    }
+
+
+                                    event
+                                        .preventDefault();
+
+
+                                    target
+                                        .scrollIntoView({
+                                            behavior:
+                                                "smooth",
+
+                                            block:
+                                                "start"
+                                        });
+
+
+                                    closeMenu();
+
+                                }
+                            );
+
+                    });
+
+
+                /* =============================================
+                   HEADER AO ROLAR
+                ============================================== */
+
+                const header =
+                    document
+                        .getElementById(
+                            "header"
+                        );
+
+
+                function updateHeader() {
+
+                    if (
+                        window.scrollY > 20
+                    ) {
+
+                        header
+                            .classList
+                            .add(
+                                "scrolled"
+                            );
+
+                    } else {
+
+                        header
+                            .classList
+                            .remove(
+                                "scrolled"
+                            );
+
+                    }
+
+                }
+
+
+                window
+                    .addEventListener(
+                        "scroll",
+                        updateHeader,
+                        {
+                            passive: true
+                        }
+                    );
+
+
+                updateHeader();
+
+
+                /* =============================================
+                   ANIMAÇÃO DE ENTRADA
+                ============================================== */
+
+                const prefersReducedMotion =
+                    window.matchMedia(
+                        "(prefers-reduced-motion: reduce)"
+                    ).matches;
+
+
+                const revealElements =
+                    document
+                        .querySelectorAll(
+                            ".reveal"
+                        );
+
+
+                if (
+                    prefersReducedMotion
+                ) {
+
+                    revealElements
+                        .forEach(
+                            element => {
+
+                                element
+                                    .classList
+                                    .add(
+                                        "visible"
+                                    );
+
+                            }
+                        );
+
+                } else {
+
+                    const observer =
+                        new IntersectionObserver(
+                            entries => {
+
+                                entries
+                                    .forEach(
+                                        entry => {
+
+                                            if (
+                                                entry
+                                                    .isIntersecting
+                                            ) {
+
+                                                entry
+                                                    .target
+                                                    .classList
+                                                    .add(
+                                                        "visible"
+                                                    );
+
+                                                observer
+                                                    .unobserve(
+                                                        entry.target
+                                                    );
+
+                                            }
+
+                                        }
+                                    );
+
+                            },
+                            {
+                                threshold: 0.12,
+
+                                rootMargin:
+                                    "0px 0px -40px 0px"
+                            }
+                        );
+
+
+                    revealElements
+                        .forEach(
+                            element => {
+
+                                observer
+                                    .observe(
+                                        element
+                                    );
+
+                            }
+                        );
+
+                }
+
+
+                /* =============================================
+                   ANO DO RODAPÉ
+                ============================================== */
+
+                document
+                    .getElementById(
+                        "currentYear"
+                    )
+                    .textContent =
+                        new Date()
+                            .getFullYear();
+
+
+                /* =============================================
+                   FECHAR MENU AO VOLTAR PARA DESKTOP
+                ============================================== */
+
+                window
+                    .addEventListener(
+                        "resize",
+                        () => {
+
+                            if (
+                                window.innerWidth >
+                                820
+                            ) {
+
+                                closeMenu();
+
+                            }
+
+                        }
+                    );
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
